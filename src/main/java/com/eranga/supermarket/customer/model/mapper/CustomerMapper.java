@@ -5,6 +5,9 @@ import com.eranga.supermarket.customer.model.entity.CustomerEntity;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class CustomerMapper {
 
@@ -18,5 +21,9 @@ public class CustomerMapper {
         CustomerDto CustomerDto = new CustomerDto();
         BeanUtils.copyProperties(customerEntity,CustomerDto);
         return CustomerDto;
+    }
+
+    public List<CustomerDto> customerEntityToDtoList(List<CustomerEntity> customerEntityList){
+        return customerEntityList.stream().map(this::customerEntityToDto).collect(Collectors.toList());
     }
 }

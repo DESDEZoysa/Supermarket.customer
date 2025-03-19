@@ -27,5 +27,8 @@ public class CustomerEntity {
     private GenderEnum gender;
     @Column(name = "mobile", nullable = false)
     private String mobile;
+    @Column(name = "email", nullable = false)
     private String email;
+    @Column(name = "nic", nullable = false)
+    private String nic;
 }
